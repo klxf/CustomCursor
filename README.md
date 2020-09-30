@@ -1,0 +1,2 @@
+# CustomCursor
+A Typecho plugin
