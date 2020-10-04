@@ -74,9 +74,9 @@ class CustomCursor_Plugin implements Typecho_Plugin_Interface
     // 为header添加css文件
     public static function header() {
         if(empty(htmlspecialchars(Typecho_Widget::widget('Widget_Options')->plugin('CustomCursor')->normal))){
-            $style1 = 'body {cursor: url(' . Helper::options()->pluginUrl . '/CustomCursor/cursors/normal.cur), auto;}';
+            $style1 = '* {cursor: url(' . Helper::options()->pluginUrl . '/CustomCursor/cursors/normal.cur), auto;}';
         }else{
-            $style1 = 'body {cursor: url(' . htmlspecialchars(Typecho_Widget::widget('Widget_Options')->plugin('CustomCursor')->normal) . '), auto;}';
+            $style1 = '* {cursor: url(' . htmlspecialchars(Typecho_Widget::widget('Widget_Options')->plugin('CustomCursor')->normal) . '), auto;}';
         }
         if(empty(htmlspecialchars(Typecho_Widget::widget('Widget_Options')->plugin('CustomCursor')->text))){
             $style2 = 'p,textarea,input {cursor: url(' . Helper::options()->pluginUrl . '/CustomCursor/cursors/texto.cur), auto;}';
@@ -96,7 +96,7 @@ class CustomCursor_Plugin implements Typecho_Plugin_Interface
         if(empty(htmlspecialchars(Typecho_Widget::widget('Widget_Options')->plugin('CustomCursor')->custom))){
             $style5 = "// 未设置custom";
         }else{
-            $style5 = 'body {cursor: url(' . htmlspecialchars(Typecho_Widget::widget('Widget_Options')->plugin('CustomCursor')->custom) . '), auto;}';
+            $style5 = htmlspecialchars(Typecho_Widget::widget('Widget_Options')->plugin('CustomCursor')->custom);
         }
         echo <<<HTML
 <style>
